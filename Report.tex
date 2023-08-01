@@ -1,0 +1,647 @@
+\documentclass[a4paper,12pt]{report}
+\usepackage[margin=0.85in]{geometry}
+\usepackage{graphicx}
+\usepackage{mathptmx}
+\usepackage{parskip} 
+\usepackage{blindtext}
+\usepackage{sectsty}
+\usepackage{titlesec}
+\chapterfont{\centering}
+\setlength{\parindent}{1 cm}
+\setlength{\parskip}{6pt}
+\renewcommand{\baselinestretch}{1.5}
+\usepackage{fancyhdr}
+\usepackage{mathtools, amssymb}
+\usepackage{chemformula}
+\usepackage{bm}
+\usepackage[version=4]{mhchem}
+\usepackage{inputenc}
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{3}
+\usepackage[pages=some]{background}
+
+
+\let\mtcontentsname\contentsname
+\renewcommand\contentsname{\MakeUppercase\mtcontentsname}
+
+\titleformat{\chapter}[display]
+  {\normalfont\sfamily\Large\bfseries\centering}
+  {\chaptertitlename\ \thechapter}{0pt}{\Large}
+
+ \titlespacing*{\chapter}{0pt}{0pt}{6pt}
+ \titlespacing*{\section}{0pt}{0pt}{6pt}
+ \titlespacing*{\subsection}{0pt}{0pt}{6pt}
+ \titlespacing*{\subsubsection}{0pt}{0pt}{6pt}
+ 
+
+
+\titleformat*{\section}{\normalfont\sfamily\Large\bfseries}
+\titleformat*{\subsection}{\normalfont\sfamily\large\bfseries}
+\titleformat*{\paragraph}{\normalfont\large\sfamily}
+\titleformat*{\subsubsection}{\normalfont\sfamily\large\itshape}
+ \usepackage{etoolbox}
+
+\makeatletter
+\let\oldcite\cite
+\pretocmd{\listoffigures}{\def\cite{\ignorespaces\@gobble}}{}{}
+\apptocmd{\listoffigures}{\let\cite\oldcite}{}{}
+\makeatother
+
+\makeatletter
+\let\oldcite\cite
+\pretocmd{\listoftables}{\def\cite{\ignorespaces\@gobble}}{}{}
+\apptocmd{\listoftables}{\let\cite\oldcite}{}{}
+\makeatother
+\backgroundsetup{scale=1.5,angle=0,opacity=0.2,
+	contents={\includegraphics[scale=1.5]{"tkmce_logo"}}}
+\begin{document}
+	\begin{minipage}{0.9\linewidth}
+		\centering
+		
+		\vspace{2cm}
+		%Project title
+		\Large\textbf{\uppercase{LPG GAS LEAKAGE PREVENTION AND AUTO CUT-OFF SYSTEM}}\\
+		\vspace{1cm}
+		
+		{\uppercase{\large{{PROJECT REPORT}\par}}}
+		\vspace{0.5cm}   
+		%Degree
+		\large{submitted by}
+		
+		\vspace{0.5cm}
+		%Author's name
+		{\large \textbf{FELIX ANTONY PAUL[CHN20EC034] \\ SANGHAVI PR [CHN20EC061] \\  SREELAKSHMI[CHN20EC067] \\ SHAUN BIJU VARGHESE[CHN20EC79]
+				 }\par}
+		\vspace{0.5cm}
+		to
+			\vspace{0.5cm}
+			
+		\textit { APJ Abdul Kalam Technological University \\ in partial fulfillment of the requirements for the award of B.Tech Degree
+		in Electronics and Communication Engineering}
+		
+		
+		\vspace{2cm}
+		\includegraphics[width=0.3\textwidth]{CEC_Logo.png}
+		\vspace{1cm}
+		
+		\large {\textbf{DEPARTMENT OF ELECTRONICS ENGINEERING\\
+			COLLEGE OF ENGINEERING CHENGANNUR, ALAPPUZHA\\
+    			JUNE 2023\\}}
+	\end{minipage}
+\thispagestyle{empty}
+\clearpage
+\newenvironment{certificate1}
+\thispagestyle{empty}
+\clearpage
+\thispagestyle{empty}
+\newenvironment{certificate1}
+\vspace{3cm}
+	\newpage
+ 	
+	\begin{center}	
+		\vspace{1.5cm}
+		
+		\textbf{DEPARTMENT OF ELECTRONICS ENGINEERING \\}	
+		\textbf{ COLLEGE OF ENGINEERING CHENGANNUR\\}	
+		\textbf{ALAPPUZHA}
+	\end{center}
+	
+	\begin{center}
+		\includegraphics[width=0.3\textwidth]{CEC_Logo.png}	
+
+	\end{center}
+\begin{spacing}
+\textit{This is to certify that, the project report titled  \textbf{LPG LEAKAGE PREVENTION AND TIMER BASED CUT-OFF SYSTEM} is a bonafide record of  %\textbf{CSD416 PROJECT} presented by 
+% \textbf{ALWIN JOHN} (CHN19CS016) ,
+% \textbf{AMAL T VINOD} (CHN19CS017),
+\textbf{SHAUN BIJU VARGHESE, SREELAKSHMI VINOD, SANGHAVI P R, FELIX ANTONY PAUL} 
+% \textbf{NIVIN VIGI}  (CHN19CS087),
+to the APJ Abdul Kalam Technological University in
+partial fulfillment of the requirements for the award of the Degree of Bachelor of Technology in
+Electronics and Communication Engineering is a bona fide record of the mini project carried out by
+them under our guidance and supervision. This report has not been submitted to any other University
+or Institute for any purpose. 
+\textbf{}.}
+\end{spacing}
+	
+	
+	\begin{singlespace}
+		\vspace*{3cm}
+		\begin{table}[h!]
+			%\centering
+			%\begin{tabular}{p{7cm} p{0.9cm} p{1.5cm}} 
+   \begin{tabular}{l l l}
+			%\textbf{\guide} && \textbf{\projcordinatorA} \\
+       \textbf{Smt. Neethu verjisen}& \hspace{1.0in}\textbf{Smt. Darsana s} & \hspace{1.0in}\textbf{Dr. Laila D} \\
+				ProjectGuide & \hspace{1.0in}Project Coordinator & \hspace{1.0in}Head of the Dept. \\  
+			%	\guidedes & & \projcordinatorAdes\\ 
+    & \hspace{1.0in} & \hspace{1.0in} \\
+			 & \hspace{1.0in} & \hspace{1.0in}  \\ 
+				
+			\end{tabular}
+			
+		\end{table}
+		
+		\vspace*{1.3cm}
+		
+		%\begin{center}
+			
+			%\hline
+			 %\textbf{\hod} \\ 
+			%\hoddes\\ 
+            
+               %  \centering
+             % Dr.Saibi R \\ 
+              %  Head of the Department\\
+			%Dept.of Chemical Engineering\\ 
+  
+			
+			
+		\end{center}
+	\end{singlespace}
+	
+\clearpage
+
+\pagenumbering{roman}
+
+\newpage
+
+
+
+\begin{center}
+ \Large {\bf \uppercase{Declaration}}
+\end{center}
+\vspace{1cm}
+\par
+I undersigned hereby declare that the project report  “\textbf{LPG GAS LEAKAGE PREVENTION AND AUTO CUT-OFF SYSTEM}" , submitted for partial fulfillment of the requirements for the award of degree of Bachelor of Technology of the APJ Abdul Kalam Technological University, Kerala is a bonafide work done by us under supervision of \textbf{Smt. Neethu Verjsen}. This submission represents our ideas in my own words and where ideas or words of others have been included, I have adequately and accurately cited and referenced the original sources. I also declare that I have adhered to ethics of academic honesty and integrity and have not misrepresented or fabricated any data or idea or fact or source in our submission. I understand that any violation of the above will be a cause for disciplinary action by the institute and/or the University and can also evoke penal action from the sources which have thus not been properly cited or from whom proper permission has not been obtained. This report has not been previously formed the basis for the award of any degree, diploma or similar title of any other University. 
+
+\noindent \begin{minipage}{0.45\linewidth}
+\begin{flushleft}
+\vspace{1cm}
+
+\textbf {Place:} Chengannur \\
+\textbf {Date :} 03/08/2023
+
+\end{flushleft} 
+\end{minipage}
+\hfill
+\begin{minipage}{0.50\linewidth}
+\begin{flushright}                                      
+\vspace{3cm}
+
+\\
+\\
+\textbf{ FELIX ANTONY PAUL[CHN20EC034]\\ SANGHAVI P R[CHN20EC061]\\ SREELAKSHMI VINOD[CHN20EC067]\\ SHAUN BIJU VARGHES[CHN20EC079]\\}
+
+
+
+\end{flushright} 
+\end{minipage}
+\addcontentsline{toc}{chapter}{Declaration}
+\clearpage
+
+
+\newpage
+
+
+
+\newenvironment{acknowledgement}
+\thispagestyle{empty}
+\begin{center}
+ \Large {\bf \uppercase{Acknowledgement}}
+\end{center}
+
+\addcontentsline{toc}{chapter}{Acknowledgement}
+\vspace{1.5cm}
+
+
+\noindent{We take this opportunity to express our sincere gratitude to the people who have been
+instrumental in the successful completion of our project.
+We would like to place on record our deep sense of gratitude to our Principal,
+Dr.Smitha Dharan, and the Head, Department of Electronics Engineering Dr.Laila D for
+providing more than adequate facilities.
+We are thankful to our project coordinator Darsana S for her timely help and advice. We are
+also indebted to Neethu Verjisen for her guidance and support throughout the project.
+Support from our family has helped us move forward, and is always our strength. We would
+like to thank our dear friends and family for extending their cooperation and encouragement
+throughout the project preparation, without which we would never have completed the project
+this well
+	\begin{flushright}
+		\textbf{}
+	\end{flushright}
+	
+}
+\clearpage
+
+
+
+\newpage
+
+\begin{center}
+    \Large\textbf{ABSTRACT}  
+\end{center} 
+\vspace{1cm}
+LPG cylinders have become an integral part of every home. Nowadays people are having a hectic
+schedule and won't be able to provide constant vigilance to the gas stove. A significant amount of
+LPG is wasted by forgetting to turn off their gas burner in the kitchen, and sometimes it can be
+dangerous and life threatening too. So, a reliable system that can automatically shut off the gas
+supply in case of a leak is essential to prevent such accidents and improve safety. \\
+Therefore, we are introducing a system to solve these problems. The project aims to create a system
+that detects LPG gas leaks, activates an alarm to alert the occupants, and automatically shuts off
+the gas supply to prevent any accidents. This system also provides a timer which will turn off the
+gas stove automatically after the time set by the user is over. The user doesn’t have to worry about
+turning OFF the stove at the right time, it will prevent unnecessary LPG wastage and accidents
+which will be caused due to not turning it off.\\
+This is an Arduino UNO microcontroller system, +whenever a leakage is detected by the gas sensor
+in the system, the gas regulator will be turned off by the servo motor attached to it, and the user
+can also set cooking time, the timer input will be given through a matrix keyboard when the set
+time is over the gas supply will be turned off.
+\vspace{0.5cm}
+% \newline \textbf{ Keywords}: Blockchain, Smart Contract, Ethereum, Solidity, Metamask
+
+\addcontentsline{toc}{chapter}{Abstract}
+\clearpage
+\newpage
+\tableofcontents
+\renewcommand*\contentsname{CONTENTS}
+
+\newpage
+\renewcommand{\listfigurename}{LIST OF FIGURES}
+
+\listoffigures
+\addcontentsline{toc}{chapter}{List of Figures}
+
+\newpage
+\renewcommand{\listtablename}{LIST OF TABLES}
+\addcontentsline{toc}{chapter}{List Of Tables}
+
+
+
+
+\newpage
+\chapter*{ABBREVIATIONS}
+\addcontentsline{toc}{chapter}{Abbreviations}
+\begin{enumerate}
+ 	\item DC       - Direct Current
+ 	\item I2C      - Inter-Integrated Circuit
+	\item IDE      - Integrated Development environment
+	\item LCD      - Liquid Crystal Display
+ 	\item LPG      - Liquid Petroleum Gas
+ 	\item SCL      - Serial Clock Line
+	\item SDA      - Serial Data Line
+	
+\end{enumerate}
+
+% \newpage
+ 
+
+\renewcommand{\chaptername}{CHAPTER}
+\chapter{INTRODUCTION}
+\pagenumbering{arabic}
+
+\section{Project Area}
+\par LPG gas stove systems are widely used among the society for a long time. It's a huge competition
+in the market when the induction cookers and microwave ovens got implemented. These
+microwave ovens and induction cookers were available in the market at an affordable price, merely
+lower than the common gas stoves. We all know that, the usage of microwave ovens are very easier
+and we can adjust the timers for cooking the food items in a lower time period. But the over usage
+of microwave ovens can increase the use of electricity. When dealing with the induction cookers,
+they are affordable but not that much user friendly to the common people.
+Due to these all reasons, common people always try to use gas stove systems which are user
+friendly. But the usage of LPG gas stoves can cause various types of accidents. So here we are
+introducing a new system. Since it is the most used equipment in the house-hold appliances, it is
+essential to ensure the better safety and make it more user friendly. Also, nowadays so many
+accidents are occurring due to carelessness during cooking while managing gas stoves. Thus, this
+proposing system mainly focuses on the safety aspect. The system basically reduces the accidents
+that may be caused due to leakage of LPG, as the gas regulator will be automatically turned off if
+a leakage is detected. With the implementation of the system, wastage of LPG and related accidents
+can be reduced. The system is about to implement with the help of a micro-controller.
+The user can also put a timer for cooking when the set time is elapsed the gas will automatically
+turned off. This proposed system solves the accidents caused due to carelessness while cooking
+food items and helps in reducing the wastage of LPG. Timer can be set as same as like in the
+induction cookers and microwave ovens and it will be displayed
+
+\newpage
+\section{Objectives}
+\begin{itemize}
+    \item The main objective of the project is to reduce the accidents caused due to the negligence
+    and enable the user to handle the LPG-gas stove in a simple manner
+    \item By implementing the system, wastage of LPG during the time of cooking due to the
+    carelessness is reduced upto an extend
+    \item Operation of a gas stove is made efficient and advanced
+\end{itemize}
+
+
+\chapter{METHODOLOGY}
+
+\section{System Architecture}
+%\lipsum[2] % Please comment this line and type in the content
+The system is designed and simulated using AUTODESK Tinkercad software with the Arduino
+programming language. The complete functions of this system is controlled by an Arduino. To
+detect the leakage of the LPG gas we use a gas sensor. The automatic turn OFF of flame is
+controlled by turning the gas regulator knob by the help of a servo motor. Using matrix keyboard
+the input of the timer is given and the time is displayed on the LCD Display, when the set time
+elapses the servo motor will turn off the GAS regulator knob.
+
+\section{AUTODESK Tinker cad software}
+The system is designed and simulated using AUTODESK Tinkercad software with the Arduino
+programming language. Tinkercad is a free web app for 3D design, electronics, and coding. We’re
+the ideal introduction to Autodesk, a global leader in design and make technology. Here for the
+simulation testing of our project, we are using this AUTOCAD Tinkercad Software.
+
+\section{Arduino}
+The complete functions of this system is controlled by an Arduino ATmega 328P. There are
+different input sensors and output sensors present in this system. These all input sensors and output
+sensors are to and from the Arduino.
+
+\section{LPG Detection}
+To detect LPG leakage, we use an MQ-5 sensor. The sensor consists of a tin dioxide (SnO2)
+sensing element that is heated using an integrated heater. When the target gas comes in contact
+with the sensor's surface, it undergoes a chemical reaction, causing a change in the sensor's
+resistance. This change is then measured and processed to determine the gas concentration
+
+
+\section{Automatic Gas Turn OFF}
+The automatic gas turn off is controlled by the servo, the servo motor will rotate the gas regulator
+to off position either when there is a leakage or when the set time by the user is elapsed.
+
+\section{Time setting and Display}
+Using a matrix keyboard, time can be input as per the user's requirement, and the time setting and
+countdown will be displayed on the LCD Display.
+
+\section{Alarm System}
+For an extra layer of safety, a buzzer sound is also provided. Which means, whenever there is a
+leakage of the buzzer will make an alarm sound to draw the attention of the user.
+
+\chapter{LITERATURE SURVEY}
+%\section{}
+LPG gas leakage prevention and timer-based shutoff system is proposed to solve daily-life cooking
+problems. Some features were provided in the traditional gas stove and gas cylinder including
+[1] LPG leakage detection using MQ5 gas sensor. The sensitive material used in the gas sensor is
+tin oxide, which has lower conductivity in a clean air medium. When the target LPG leak is
+detected, the sensor’s conductivity rises and increases proportionately as the extent of gas leakage
+increases. When the gas level exceeds the threshold level the gas supply will shutoff automatically
+by turning the gas cylinder knob using a servo motor. As an additional feature when gas leakage
+was detected [2] liquid crystal display (LCD) gets activated. In the LCD the status of the gas
+leakage is shown. [3]A buzzer will also get activated at this time to provide an alert to residents.
+To reduce the LPG wastage [4] timer based shut off system is also integrated with the gas stove.
+In this system cooking time can be provided by the user and that time will be displayed in the
+LCD, when the timer time out, the stove knob automatically turns off using a servo motor. Thus
+LPG wastage is reduced.
+
+
+
+
+\newpage
+\section{BLOCK DIAGRAM AND WORKING}
+\vspace
+\begin{}
+    \begin{figure}[!hbt]
+    \includegraphics[width=0.5\textwidth]{pics/block diagram.jpeg}
+    \centering
+    \caption{Block Diagram of proposed System}
+    \label{fig:}
+    \end{figure}
+\end{center}
+\para
+The LPG gas sensor measures the LPG concentration in the room and the value is passed to
+Arduino. Arduino Uno will receive the value and processes it, if the value in ppm is greater than a
+certain threshold then the gas leak is detected. If a gas leak is detected, the Arduino activates the
+servo motor and the buzzer. The servo motor will rotate the regulator valve to OFF position, and
+the buzzer will provide an audible alarm and necessary warnings will be shown on the display.
+The user can also input time through a matrix keyboard, the input will be given to Arduino. It
+activates the timer and the countdown will be shown on the display. When the time set by the user
+is over, Arduino will pass the signal to activate the servo motor. The servo motor will rotate the
+regulator valve to OFF position.
+
+
+\chapter{COMPONENTS}
+\section{Arduino UNO}
+ The Arduino UNO is a standard board of Arduino. Arduino UNO is based on an AT-mega328P
+micro controller. It is easy to use compared to other boards, such as the Arduino Mega board, etc.
+The board consists of digital and analog Input/Output pins (I/O), and other circuits. The Arduino
+UNO includes 6 analog pin inputs, 14 digital pins, a USB connector, a power jack, etc. It is
+programmed based on IDE, which stands for Integrated Development Environment.
+\begin{center}
+    \begin{figure}[!hbt]
+    \includegraphics[width=0.5\textwidth]{pics/arduino uno.jpeg}
+    \centering
+    \caption{Arduino UNO}
+    \label{fig:}
+    \end{figure}
+\end{center}
+
+ 
+\section{MQ5 Gas Sensor}
+ The MQ5 gas sensor is a semiconductor-based device designed to detect and measure the
+concentration of flammable gases in the surrounding environment. It utilizes a tin dioxide (SnO2)
+sensing element that reacts to the presence of flammable gases by changing its electrical
+conductivity. The sensor is commonly used in gas leak detection systems and gas concentration
+monitoring applications. It offers high sensitivity, fast response time, and can detect gases such as
+natural gas (methane) and liquefied petroleum gas (LPG). The MQ5 sensor is compatible with
+microcontrollers, providing an analog output signal that can be processed for further analysis. Its
+inclusion in the project allows for accurate detection of flammable gases and enhances the overall
+safety of the system.
+\begin{center}
+    \begin{figure}[!hbt]
+    \includegraphics[width=0.5\textwidth]{pics/mq5 sensor.jpeg}
+    \centering
+    \caption{MQ5 Sensor}
+    \label{fig:}
+    \end{figure}
+\end{center}
+
+\section{Servo Motor}
+A servo motor is a type of motor that is commonly used in robotics and automation applications.
+It is a small, compact motor that uses feedback control to accurately and precisely control the
+position, speed, and torque of its output shaft. Servo motors are typically composed of a DC
+motor, a gearbox, and a control circuit. The control circuit receives signals from an external
+controller and adjusts the motor's rotation accordingly.
+\begin{center}
+    \begin{figure}[!hbt]
+    \includegraphics[width=0.5\textwidth]{pics/servo motor.jpeg}
+    \centering
+    \caption{Servo Motor}
+    \label{fig:}
+    \end{figure}
+\end{center}
+
+\section{LCD Display}
+LCD displays are commonly used because they are lightweight, consume very little power, and
+have good readability even in bright sunlight. They are also relatively inexpensive and can be
+easily integrated into a wide range of electronic device.
+The LCD display can be used to provide important feedback to the user and help them monitor the
+system's status.
+An LCD display can be used to show important information about the system to the user. This can
+include information such as the gas leak status, the timer settings, and any error messages that may
+be displayed.
+\begin{center}
+    \begin{figure}[!hbt]
+    \includegraphics[width=0.5\textwidth]{pics/lcd display.jpeg}
+    \centering
+    \caption{LCD}
+    \label{fig:}
+    \end{figure}
+\end{center}
+
+\section{I2C Modules}
+I2C modules are designed to be easily integrated into projects, especially those involving
+microcontrollers like Arduino.
+By using an I2C module, you significantly reduce the number of pins required to interface with the
+LCD display. Typically, an LCD display without an I2C module would require several digital pins
+for data, control signals, and backlight control. However, with the I2C module, you only need two
+pins (SDA and SCL) for communication, freeing up valuable pins for other functionalities or
+components in your project.The I2C module simplifies the wiring and connectivity between the microcontroller and the LCD
+display.
+\begin{center}
+    \begin{figure}[!hbt]
+    \includegraphics[width=0.5\textwidth]{pics/i2c module.jpeg}
+    \centering
+    \caption{I2C Module}
+    \label{fig:}
+    \end{figure}
+\end{center}
+\section{Matrix Keyboard} 
+A matrix keyboard is a type of keyboard that uses a grid of switches to input data into a
+computer or other electronic device. Matrix keyboards are often used in small electronic devices
+such as calculators, phones, and remote controls.
+\begin{center}
+    \begin{figure}[!hbt]
+    \includegraphics[width=0.5\textwidth]{pics/matrix keyboard.jpeg}
+    \centering
+    \caption{Matrix Keyboard}
+    \label{fig:}
+    \end{figure}
+\end{center}
+
+\section{BUZZER} 
+\para
+A buzzer is a type of electronic sound-producing device that can be used to generate an audible
+alert or alarm signal. It can be used to give necessary warning to the user
+\begin{center}
+    \begin{figure}[!hbt]
+    \includegraphics[width=0.5\textwidth]{pics/buzzer2.jpeg}
+    \centering
+    \caption{Buzzer}
+    \label{fig:}
+    \end{figure}
+\end{center}
+
+\section{Arduino IDE}
+
+Arduino IDE is an open-source software platform used for programming Arduino boards. It
+provides a user-friendly interface for writing, compiling, and uploading code to Arduino
+microcontrollers.
+It includes a library manager that allows users to easily add and manage libraries for extended
+functionality
+
+\chapter{CIRCUIT DIAGRAM}
+\begin{center}
+    \begin{figure}[!hbt]
+    \includegraphics[width=0.5\textwidth]{pics/circuit diagram.jpeg}
+    \centering
+    \caption{Circuit Diagram}
+    \label{fig:}
+    \end{figure}
+\end{center}
+ 
+The above figure is the circuit diagram of the proposed project. This circuit was simulated in
+Tinkercad and results were:
+\begin{itemize}
+    \item The gas sensor was detecting gas leakage and the servo rotated to OFF position and
+    buzzer was turned ON
+    \item Timer input was given through the matrix keyboard, and when the set time was elapsed
+    the servo rotated to OFF.
+\end{itemize}
+\newpage
+ 
+{
+\begin{table}
+    \chapter{COST}
+    \centering
+    \begin{tabular}{|c|c|c|}
+    \hline
+    SI.no & Components & Cost(Rs)\\
+    \hline
+    1 & Arduino UNO & 1000 \\
+    \hline
+    2 & Servo Motor & 300\\
+    \hline
+    3 & Matrix Keyboard & 200\\
+    \hline
+    4 & MQ-5 Gas Sensor & 100\\
+    \hline
+    5 & Buzzer &50\\
+    \hline
+    6 & Wires and Bread Board & 180\\
+    \hline
+    7 & others & 200\\
+    \hline
+    & Total & 2030\\
+    \hline
+    
+    \end{tabular}
+    \caption{Cost of proposed system}
+    \label{tab:my_label}
+\end{table}
+}
+\chapter{CONCLUSION}
+
+In conclusion, our project on LPG gas leak prevention and automatic timer shut-off system
+addresses the critical need for enhanced safety and convenience in gas usage. By incorporating a
+reliable gas sensor, an Arduino Uno microcontroller and a buzzer, we have developed a solution
+that effectively detects gas leaks and shuts off the gas supply automatically when necessary.
+Furthermore, we have incorporated an intuitive timer feature that allows users to set a specific
+duration for gas usage. Once the set time elapses, the system automatically turns off the gas supply,
+offering convenience and peace of mind, especially in situations where users may inadvertently
+forget to turn off the gas.
+Our system's user-friendly interface, including an LCD display and matrix keyboard which
+enables easy interaction and customization of the timer settings.
+Overall, our project successfully combines safety, efficiency, and ease of use, providing a reliable
+solution for LPG gas leak prevention and unnecessary wastage of LPG gas.
+
+\newpage
+\renewcommand{\bibname}{\uppercase{REFERENCES}}
+\begin{thebibliography}{999}
+\addcontentsline{toc}{chapter}{\hspace{0.19in} REFERENCES}
+
+
+% \bibitem{one} 
+% \textbf{V. Aleksieva, H. Valchanov and A. Huliyan,}
+% Implementation of Smart Contracts based on Hyperledger Fabric Blockchain for the Purpose of Insurance Services in \emph{2020 International Conference on Biomedical Innovations and Applications (BIA)}
+
+\bibitem{one}
+\textbf{T.H.Mujawar}, \textbf{V.D.Bachuwar},\textbf{M.S.Kasbe}, \textbf{A.D.Shaligramand} and \textbf{L.P.Deshmuh},
+"Development of wireless sensor network system for LPG gas leakage detection system."
+in \emph {International Journal of
+Scientific and Engineering Research, Volume 6, Issue 4,2015.}
+
+\bibitem{two}
+\textbf{Islam}, \textbf{Md Rakibul} and \textbf{Et al},
+"A Novel Smart Gas Stove with Gas Leakage Detection and
+Multistage Prevention System Using IoT LoRa Technology"
+in \emph{2020 IEEE Electric Power and
+Energy Conference (EPEC).IEEE,2020.}.
+
+\bibitem{three}
+\textbf{Arun Manha}, \textbf{Neeraj Chambyal}, \textbf{Manish Raina}, \textbf{Dr.Simmi Dutta} and\textbf{Er. Prabhjot Singh}
+"LPG Gas Leakage Detection Using IOT"
+in \emph{"International Journal of Scientific Research in
+Computer Science, Engineering and Information Technology.}
+
+\bibitem{four}
+\textbf{Ali,Arish} and \textbf{et al}
+"Smart Stove Automation Using Wireless Network and Mobile
+Application"
+in \emph{Modern Industrial IoT,Big Data and Supply Chain.Springer,Singapore,2021.369-
+388.}.
+
+\end{thebibliography}
+
+% \begin{appendices}
+
+
+% \end{appendices}
+
+
+\end{document}
